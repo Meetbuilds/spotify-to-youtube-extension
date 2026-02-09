@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Spotify to YouTube Transfer",
+  "version": "1.0",
+  "permissions": ["activeTab", "scripting", "identity"],
+  "host_permissions": ["https://open.spotify.com/*", "https://www.googleapis.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "oauth2": {
+    "client_id": "PASTE_YOUR_CLIENT_ID_HERE",
+    "scopes": ["https://www.googleapis.com/auth/youtube.force-ssl"]
+  }
+}
