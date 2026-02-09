@@ -11,7 +11,7 @@
     "service_worker": "background.js"
   },
   "oauth2": {
-    "client_id": "624866066438-gamm7qdd56l8urltmnfpji6shqqt8npr.apps.googleusercontent.com",
+    "client_id": "397219259429-l91fn4m3cfa33q28qdh8d3ippfk8vpcs.apps.googleusercontent.com",
     "scopes": ["https://www.googleapis.com/auth/youtube.force-ssl"]
   }
 }
