@@ -1,5 +1,6 @@
 document.getElementById("transferBtn").addEventListener("click", async () => {
   const playlistId = document.getElementById("ytPlaylistId").value;
+  // Get start index, default to 0 if empty
   const startIndex = parseInt(document.getElementById("startIndex").value) || 0;
 
   if (!playlistId) {
@@ -15,17 +16,20 @@ document.getElementById("transferBtn").addEventListener("click", async () => {
   }, () => {
     chrome.tabs.sendMessage(tab.id, { action: "scrape_spotify" }, (response) => {
       if (response && response.songs) {
-        // Slice the array based on the start index
-        const songs processes = response.songs.slice(startIndex);
+        const allSongs = response.songs;
+        // Slice the array to start from the specific index
+        const songsToProcess = allSongs.slice(startIndex);
         
-        document.getElementById("status").innerText = `Found ${response.songs.length} songs.\nProcessing ${songs.length} songs (starting from #${startIndex})...`;
+        document.getElementById("status").innerText = `Found ${allSongs.length} songs.\nProcessing ${songsToProcess.length} songs (starting from #${startIndex})...`;
         
         chrome.runtime.sendMessage({
           action: "process_songs",
-          songs: songs,
+          songs: songsToProcess,
           playlistId: playlistId,
-          globalStartIndex: startIndex // Just for logging
+          globalStartIndex: startIndex 
         });
+      } else {
+        document.getElementById("status").innerText = "No songs found. Scroll down the playlist to load more rows!";
       }
     });
   });
