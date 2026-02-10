@@ -1,7 +1,7 @@
-# Spotify to YouTube Playlist Transfer 🎵 ➡️ 📺
+# Spotify to YouTube Playlist Transfer 
 
 - A Chrome Extension that automates the process of moving your Spotify playlists to YouTube. It scrapes song metadata from your currently active Spotify tab, searches for the best match on YouTube, and adds it to a specified YouTube playlist.
-- Utilised Google Gemini 3 Pro
+- Created using Google Gemini 3 Pro
 
 
 ## ✨ Features
